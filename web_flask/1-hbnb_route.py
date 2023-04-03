@@ -15,7 +15,7 @@ def hello():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """ Prints the message 'HBNB' when '/' is called """
+    """ Prints the message 'HBNB' when '/hbnb' is called """
     return "HBNB"
 
 
