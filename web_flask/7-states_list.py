@@ -13,14 +13,14 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def close_db(self):
-    """Closes the database after a request has been processed"""
+    """ Closes the database after a request has been processed """
     storage.close()
 
 
 @app.route("/states_list", strict_slashes=False)
 def states_list():
-    """Displays a HTML page with a list of states sorted by name"""
-    states = storage.all(State).values()
+    """ Displays a HTML page with a list of states sorted by name """
+    states = storage.all(State)
     return render_template('7-states_list.html', states=states)
 
 
