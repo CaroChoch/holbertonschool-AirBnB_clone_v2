@@ -18,19 +18,14 @@ def close_db(self):
 
 
 @app.route('/states', strict_slashes=False)
-def states():
+@app.route('/states/<id>', strict_slashes=False)
+def states(id=None):
     """ Displays a HTML page with a list of all states """
     states = storage.all(State)
-    return render_template('9-states.html', state=states)
+    if id:
+       id = 'State.' + id
+    return render_template('9-states.html', states=states, id=id)
 
-
-@app.route('/states/<id>', strict_slashes=False)
-def states_by_id(id):
-    """ Displays a HTML page of a State and their cities """
-    for state in storage.all('State'):
-        if state.id == id:
-            return render_template('9-states.html', state=state)
-    return render_template('9-states.html', not_found=True)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
