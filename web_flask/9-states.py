@@ -23,7 +23,7 @@ def states(id=None):
     """ Displays a HTML page with a list of all states """
     states = storage.all(State)
     if id:
-       id = 'State.' + id
+        id = 'State.' + id
     return render_template('9-states.html', states=states, id=id)
 
 
